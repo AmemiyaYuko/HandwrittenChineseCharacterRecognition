@@ -1,6 +1,7 @@
 import os
 import cv2
 import numpy as np
+import argparse
 
 
 def read_gnt(file):
@@ -19,16 +20,27 @@ def file_list(gnt_dir):
     return [os.path.join(gnt_dir, file_name) for file_name in os.listdir(gnt_dir)]
 
 
-def gen_id():
-    char_id = 0
-    while True:
-        char_id += 1
-        yield char_id
+def arg_parser():
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--data-dir",type=str,help="Absolute path of gnt dateset",default=os.path.abspath("E:\HWDB1.1trn_gnt"))
+    parser.add_argument("--output-dir",type=str,help="Absolute path for storing pictures",default=os.path.abspath("E:\HWDB_Dataset"))
+    return parser.parse_args()
 
 
-files = [open(file_path, "r") for file_path in file_list("C:\\Users\\AmemiyaYuko\\Downloads\\isolated_data")]
-i = 0;
-for file in files:
-    for (image, tag_code) in (read_gnt(file)):
-        i += 1
-        cv2.imwrite(str(tag_code) + "_" + str(i) + ".jpg", img=image)
+def main(args):
+    files = [open(file_path, "r") for file_path in
+             file_list(args.data_dir)]
+    i = 0
+    for file in files:
+        for (image, tag_code) in (read_gnt(file)):
+            i += 1
+            if os.path.isdir(os.path.join(args.output_dir, str(tag_code))):
+                pass
+            else:
+                os.mkdir(os.path.join(args.output_dir, str(tag_code)))
+            cv2.imwrite(os.path.join(args.output_dir, str(tag_code)) + "\\" + str(i) + ".jpg", img=image)
+
+
+if __name__=='__main__':
+    main(arg_parser())
+
