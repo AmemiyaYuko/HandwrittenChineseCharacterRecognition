@@ -1,7 +1,7 @@
 *.jpg
 *.xml
 *.iml
-
+char_dict
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -12,6 +12,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+test/
 env/
 build/
 develop-eggs/
@@ -27,7 +28,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-
+*.txt
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
