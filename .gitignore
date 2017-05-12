@@ -1,4 +1,8 @@
 *.jpg
+*.png
+checkpoint/
+logger/
+Tensor*
 *.xml
 *.iml
 char_dict
