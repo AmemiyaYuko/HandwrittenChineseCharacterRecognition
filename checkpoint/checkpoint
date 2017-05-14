@@ -1,0 +1,5 @@
+model_checkpoint_path: "hccr-100001"
+all_model_checkpoint_paths: "hccr-70001"
+all_model_checkpoint_paths: "hccr-80001"
+all_model_checkpoint_paths: "hccr-90001"
+all_model_checkpoint_paths: "hccr-100001"

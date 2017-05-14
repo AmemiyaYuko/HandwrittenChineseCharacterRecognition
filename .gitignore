@@ -1,6 +1,5 @@
 *.jpg
 *.png
-checkpoint/
 logger/
 Tensor*
 *.xml
